@@ -22,7 +22,7 @@ export const Sigin = async(data)=>{
     if(!compare){
        return "password is incorect"
     }
-    const token = jwt.sign({_id: await findUser._id},process.env.JWT_SECRET_KEY); 
+    const token = jwt.sign({_id: await findUser._id,roll: await findUser.roll},process.env.JWT_SECRET_KEY); 
         const{name, email,_id, roll, image}= findUser;
         const loginUser = { name,email,_id, roll,image }     
          return {user:loginUser, token};

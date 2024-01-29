@@ -18,9 +18,10 @@ OpintmentRoute.post("/",veryfitoken, async(req,res)=>{
 });
 
 
-OpintmentRoute.get("/check",veryfitoken, async(req, res)=>{
+OpintmentRoute.get("/check/:id",veryfitoken, async(req, res)=>{
+    const id= req.params.id;
     try{
-        const check =  await checkOpintment(req.body);
+        const check =  await checkOpintment(id);
         return res.status(200).send({status: "200",  check });
     }catch(err){
         return res.status(400).send({status: "400", message: err.message });
@@ -58,8 +59,10 @@ OpintmentRoute.get("/:id",veryfitoken, async(req,res)=>{
 })
 
 
-OpintmentRoute.get("/", verifyRoll, veryfitoken, async(req,res)=>{
+OpintmentRoute.get("/all/:id",verifyRoll,veryfitoken,  async(req,res)=>{
+   
     try{
+        
         const result = await getAllOpintment();
         return res.status(200).send({status: "200", result });
     }catch(err){
