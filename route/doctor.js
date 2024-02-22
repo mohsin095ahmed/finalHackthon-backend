@@ -1,5 +1,5 @@
 import express from "express";
-import { createDoctor, deleteDoctor, getAllDoctor, serchDoctor, updateDoctor } from "../control/sevices/helper/doctor.js";
+import { createDoctor, deleteDoctor, getAllDoctor, serchDoctor, serchDoctorById, updateDoctor } from "../control/sevices/helper/doctor.js";
 const doctorRoute = express.Router();
 
 doctorRoute.get("/", async(req,res)=>{
@@ -10,7 +10,15 @@ doctorRoute.get("/", async(req,res)=>{
         return res.status(400).send({status: "400",  message:  err.message });
     }
 })
-
+doctorRoute.get("/doctorId/:id", async(req,res)=>{
+    const id = req.params.id;
+    try{
+      const result = await serchDoctorById(id);
+      return  res.status(200).send({status: "200",  doctor:  result });
+    }catch(err){
+        return res.status(400).send({status: "400",  message:  err.message });
+    }
+})
 
 doctorRoute.get("/:search", async(req,res)=>{
     const data = req.params.search;

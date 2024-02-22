@@ -47,3 +47,8 @@ export const serchDoctor = async(data)=>{
     return {findDoctorByExpert, findDoctorByName};
 
 }
+
+export const serchDoctorById = async(id)=>{
+    const doctor = await Doctor.find({_id:id});
+    return doctor;
+}
