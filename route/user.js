@@ -9,7 +9,7 @@ UserRouter.post("/", async(req, res)=>{
     try{
          const user = await addUser(req.body);
          if(user === "user is alredy exist"){
-          return res.status(400).send({status: "400",  user:  user });       
+          return res.status(400).send({status: "400",  message:  user });       
          }else{
           return res.status(200).send({status: "200",  user:  user }); 
          }

@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 4000
 
 const app =express();
 var corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://final-hackathon-frot-end.vercel.app/',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 app.use(cors(corsOptions));

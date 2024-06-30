@@ -2,8 +2,10 @@ import User from "../../../model/users.js";
 import  jwt  from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import 'dotenv/config'
-export const addUser= async(data)=>{
+export const addUser = async(data)=>{
+    console.log("data---->",data)
     const findUser = await User.findOne({email:data.email});
+    console.log("user--->", findUser)
     if(findUser){
         return "user is alredy exist"
        }

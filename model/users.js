@@ -6,14 +6,7 @@ const UserSchema = mongoose.Schema({
         type:Schema.Types.String,
         required:true,
     },
-    roll:{
-        type:Schema.Types.String,
-        required:true,
-    },
-    image:{
-        type:Schema.Types.String,
-        required:true,
-    },
+   
     email:{
         type:Schema.Types.String,
         required:true,
